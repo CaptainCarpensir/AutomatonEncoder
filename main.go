@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 
 	"github.com/CaptainCarpensir/AutomatonEncoder/packages/automaton"
 )
@@ -13,25 +14,38 @@ func main() {
 		machine *automaton.Automaton
 	)
 
-	fmt.Print("Enter yaml filename: ")
-	fmt.Scanln(&input)
+	if len(os.Args) != 2 {
+		fmt.Println("command requires one filename argument")
+		return
+	}
 
-	inStream, err := ioutil.ReadFile(input)
+	data, err := ioutil.ReadFile(os.Args[1])
 	if err != nil {
 		fmt.Printf("read file: %e\n", err)
 		return
 	}
 
-	machine, err = automaton.EncodeAutomaton(inStream)
+	machine, err = automaton.EncodeAutomaton(data)
 	if err != nil {
-		fmt.Printf("encode automaton: %e\n", err)
+		fmt.Println(err)
 		return
 	}
 
-	for true {
-		fmt.Print("Enter a word to be recognized by the automaton: ")
+	fmt.Print("Enter a word to be recognized by the automaton: ")
+	for {
+		fmt.Print("\033[s")
 		fmt.Scanln(&input)
 
-		fmt.Printf("Automaton recognizes %s: %v\n\n", input, machine.Recognize(input))
+		inLang := machine.Recognize(input)
+
+		color := 32
+		if !inLang {
+			color = 31
+		}
+
+		fmt.Printf("Automaton recognizes '%s': \033[%vm%v", input, color, inLang)
+		fmt.Print("\033[K")
+		fmt.Print("\033[u")
+		fmt.Print("\033[K")
 	}
 }
