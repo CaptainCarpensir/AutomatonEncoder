@@ -9,6 +9,14 @@ import (
 // validate returns nil if the automaton is a valid configuration
 func (i IntermediateAutomaton) validate() error {
 	var usedChars []rune
+
+	if i.States == nil {
+		return fmt.Errorf("num states nil")
+	}
+	if i.StartState == nil {
+		return fmt.Errorf("start state nil")
+	}
+
 	start := int(*i.StartState)
 	end := *i.States
 

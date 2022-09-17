@@ -1,10 +1,12 @@
 PACKAGES=./packages...
 BINARY_NAME=automata-encoder
 BINARY_DEST=./bin/${BINARY_NAME}
+COVERAGE=coverage.out
 
 .PHONY: test
 test: 
-	go test ${PACKAGES}
+	go test -coverprofile=${COVERAGE} ${PACKAGES}
+	rm ${COVERAGE}
 
 .PHONY: build
 build: build-linux build-windows build-darwin

@@ -1,5 +1,7 @@
 package automaton
 
+import "fmt"
+
 // Automaton is a 3-Tuple representing a deterministic finite automaton.
 type Automaton struct {
 	StartState         int
@@ -33,12 +35,12 @@ func (a *Automaton) Recognize(word string) bool {
 func EncodeAutomaton(inStream []byte) (*Automaton, error) {
 	intermediate, err := UnmarshalAutomaton(inStream)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("unmarshal automaton: %e", err)
 	}
 
 	automaton, err := convertToAutomaton(intermediate)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("encode automaton: %e", err)
 	}
 
 	return automaton, nil

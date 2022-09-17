@@ -1,4 +1,4 @@
-# Manifest file for a 4-tuple description of a finite automaton (alphabet is infered from the transition function)
+# Yaml file for a 4-tuple description of a finite automaton (alphabet is infered from the transition function)
 
 # Deterministic Finite Automaton which encodes the regular expression [0-9]*[1|3|5|7|9]+
 states: 2
