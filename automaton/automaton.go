@@ -17,7 +17,7 @@ func (a *Automaton) Recognize(word string) bool {
 		if !ok {
 			return false
 		}
-		state = stateFunction[state-1]
+		state = stateFunction[state-1] // Offset state as yaml is 1-indexed but Golang is 0-indexed
 	}
 
 	// Check if state is in the set of accept states

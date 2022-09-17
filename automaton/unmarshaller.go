@@ -34,7 +34,7 @@ func UnmarshalAutomaton(in []byte) (*IntermediateAutomaton, error) {
 	return &a, nil
 }
 
-// UnmarshalYAML overrides the default YAML unmarshaling logic for the Transition struct allowing it to unmarshal into a rune slice
+// UnmarshalYAML overrides the default YAML unmarshaling logic for the Transition struct allowing it to unmarshal input into a rune slice
 // This method implements the yaml.Unmarshaler (v3) interface.
 func (t *Transition) UnmarshalYAML(value *yaml.Node) error {
 	type yamlTransition struct {

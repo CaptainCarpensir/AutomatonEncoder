@@ -10,12 +10,12 @@ import (
 
 func Test_Automata(t *testing.T) {
 	testCases := map[string]struct {
-		inputFile   string
-		languageMap map[string]bool
+		inputFile string
+		language  map[string]bool
 	}{
 		"encoded automata recognizing c++ integer": {
 			inputFile: "integer.yaml",
-			languageMap: map[string]bool{
+			language: map[string]bool{
 				"1234567890":   true,
 				"+1234567890":  true,
 				"-1234567890":  true,
@@ -27,7 +27,7 @@ func Test_Automata(t *testing.T) {
 		},
 		"encoded automata recognizing odd integers": {
 			inputFile: "odd_digit.yaml",
-			languageMap: map[string]bool{
+			language: map[string]bool{
 				"1":           true,
 				"2":           false,
 				"22222286003": true,
@@ -45,11 +45,11 @@ func Test_Automata(t *testing.T) {
 			require.NoError(t, err, "encode automaton")
 
 			actual := make(map[string]bool)
-			for word, _ := range tc.languageMap {
+			for word, _ := range tc.language {
 				actual[word] = automaton.Recognize(word)
 			}
 
-			require.Equal(t, tc.languageMap, actual)
+			require.Equal(t, tc.language, actual)
 		})
 	}
 }

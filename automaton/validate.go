@@ -6,6 +6,7 @@ import (
 	"github.com/dustin/go-humanize/english"
 )
 
+// validate returns nil if the automaton is a valid configuration
 func (i IntermediateAutomaton) validate() error {
 	var usedChars []rune
 	start := int(*i.StartState)
