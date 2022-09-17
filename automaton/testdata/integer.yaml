@@ -1,0 +1,11 @@
+# Manifest file for a 4-tuple description of a finite automaton (alphabet is infered from the transition function)
+
+# Finite State Automaton which encodes the regular expression (-|+)?[0-9]+
+states: 4
+initial: 1
+finalstates: [3]
+transitions:
+  - input: "-+"
+    outputs: [2,4,4,4]
+  - input: "0123456789"
+    outputs: [3,3,3,4]
