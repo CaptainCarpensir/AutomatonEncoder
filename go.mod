@@ -1,4 +1,4 @@
-module github.com/CaptainCarpensir/automaton-encoder
+module github.com/CaptainCarpensir/AutomatonEncoder
 
 go 1.13
 
