@@ -41,25 +41,25 @@ transitions:
 ```
 
 <a id="states" href="#states" class="field">`states`</a> <span class="type">Integer</span> 
-Defines the number of states $n$ in the automaton. $Q : [1, n]$
+- Defines the number of states $n$ in the automaton. $Q : [1, n]$
 
 <a id="initial" href="#initial" class="field">`initial`</a> <span class="type">Integer</span> 
-Defines the initial state $q_0$ of the automaton.
+- Defines the initial state $q_0$ of the automaton.
 
 <a id="finalstates" href="#finalstates" class="field">`finalstates`</a> <span class="type">List of Integer</span> 
-Defines the set of states $F$ which the automaton accepts.
+- Defines the set of states $F$ which the automaton accepts.
 
 <a id="transitions" href="#transitions" class="field">`transitions`</a> <span class="type">List of Map</span> 
-The list of transitions which defines the transition function $δ$.
+- The list of transitions which defines the transition function $δ$.
 
 <span class="parent-field">transitions.</span><a id="transitions-transition" href="#transitions-transition" class="field">`transition`</a> <span class="type">Map</span> 
-A transition which maps all input symbols in $Σ$ to the set of all states $Q$.
+- A transition which maps all input symbols in $Σ$ to the set of all states $Q$.
 
 <span class="parent-field">transition.</span><a id="transition-input" href="#transition-input" class="field">`input`</a> <span class="type">String</span> 
-The input string maps all symbols in the string to the set of outputs.
+- The input string maps all symbols in the string to the set of outputs.
 
 <span class="parent-field">transition.</span><a id="transition-output" href="#transition-output" class="field">`output`</a> <span class="type">List of Integer</span> 
-The set of output states in $Q$ where the input state is defined by the index of the list.
+- The set of output states in $Q$ where the input state is defined by the index of the list.
 
 ---
 
