@@ -58,7 +58,7 @@ transitions:
 <span class="parent-field">transition.</span><a id="transition-input" href="#transition-input" class="field">`input`</a> <span class="type">String</span> 
 - The input string maps all symbols in the string to the set of outputs.
 
-<span class="parent-field">transition.</span><a id="transition-output" href="#transition-output" class="field">`output`</a> <span class="type">List of Integer</span> 
+<span class="parent-field">transition.</span><a id="transition-outputs" href="#transition-outputs" class="field">`outputs`</a> <span class="type">List of Integer</span> 
 - The set of output states in $Q$ where the input state is defined by the index of the list.
 
 ---
