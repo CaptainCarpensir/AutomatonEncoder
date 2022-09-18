@@ -35,12 +35,12 @@ func (a *Automaton) Recognize(word string) bool {
 func EncodeAutomaton(inStream []byte) (*Automaton, error) {
 	intermediate, err := UnmarshalAutomaton(inStream)
 	if err != nil {
-		return nil, fmt.Errorf("unmarshal automaton: %e", err)
+		return nil, fmt.Errorf("unmarshal automaton: %w", err)
 	}
 
 	automaton, err := convertToAutomaton(intermediate)
 	if err != nil {
-		return nil, fmt.Errorf("encode automaton: %e", err)
+		return nil, fmt.Errorf("encode automaton: %w", err)
 	}
 
 	return automaton, nil

@@ -58,7 +58,7 @@ func (t *Transition) UnmarshalYAML(value *yaml.Node) error {
 
 func convertToAutomaton(i *IntermediateAutomaton) (*Automaton, error) {
 	if err := i.validate(); err != nil {
-		return nil, fmt.Errorf("validate automaton: %e", err)
+		return nil, fmt.Errorf("validate automaton: %w", err)
 	}
 
 	var a Automaton
